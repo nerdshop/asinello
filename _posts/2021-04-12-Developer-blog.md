@@ -1,5 +1,9 @@
+---
 layout: post
-title: Developer Blog
+title:  "Developer blog"
+date:   2021-04-12 17:00:00 +0100
+categories: jekyll update
+---
 
 # Developer blog
 
