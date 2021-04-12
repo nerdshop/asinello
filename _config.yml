@@ -1,7 +1,7 @@
 theme: jekyll-theme-hacker
 
-url: "https://nerdshop.github.io/asinello"
-baseurl: "/asinello"
+#url: "https://nerdshop.github.io/asinello"
+#baseurl: "/asinello"
 
 timezone: "Europe/Berlin"
 highlighter: rouge
