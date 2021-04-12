@@ -1,8 +1,8 @@
 # Blog
 
-  {% for post in paginator.posts %}
-  post.title post.url
-  {% endfor %}
+{% for post in site.posts %}
+  {{post.title}} {{post.url}}
+{% endfor %}
 
 
 ## Welcome to GitHub Pages
