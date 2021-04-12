@@ -1,3 +1,10 @@
+# Blog
+
+  {% for post in paginator.posts %}
+  post.title post.url
+  {% endfor %}
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/nerdshop/asinello/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
