@@ -4,13 +4,9 @@ url: "https://nerdshop.github.io/asinello"
 baseurl: "/asinello"
 
 timezone: "Europe/Berlin"
-markdown: kramdown
 highlighter: rouge
 #permalink: /:year/:month/:day/:title/.html
 paginate: 10
-
-kramdown:
-  input: GFM
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
