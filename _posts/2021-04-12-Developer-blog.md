@@ -1,12 +1,3 @@
----
-layout: post
-title:  "Developer blog"
-date:   2021-04-12 17:00:00 +0100
-categories: jekyll update
----
-
-# Developer blog
-
 Ich schlage vor, dass wir bei Neuigkeiten zum Projekt Blog-Einträge erstellen. So behalten wir leichter den Überblick über aktuelle Entwicklungen und am Ende haben wir ein schönes Projekttagebuch.
 
 Zumindest zu Anfang würde ich hier durchaus auch normale Entiwicklungsarbeiten am Projekt festhalten.
