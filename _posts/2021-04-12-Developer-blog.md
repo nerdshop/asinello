@@ -1,3 +1,7 @@
+---
+title: Developer Blog
+---
+
 # Developer blog
 
 Ich schlage vor, dass wir bei Neuigkeiten zum Projekt Blog-Einträge erstellen. So behalten wir leichter den Überblick über aktuelle Entwicklungen und am Ende haben wir ein schönes Projekttagebuch.
