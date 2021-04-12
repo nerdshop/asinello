@@ -1,7 +1,5 @@
----
 layout: post
 title: Developer Blog
----
 
 # Developer blog
 
