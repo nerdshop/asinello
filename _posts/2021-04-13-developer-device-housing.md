@@ -7,7 +7,7 @@ Ich habe eine Halterung für die Ein- und Ausgabegeräte des Spiel-Clients gebau
 * Erstes Gefühl für die Steuerung bekommen
 * Weniger zerbrechliches Testgerät zum Entwickeln
 
-Im Wesentlichen habe ich eine erste Umsetzung von https://github.com/nerdshop/asinello/issues/13 durchgeführt.
+Im Wesentlichen habe ich eine erste Umsetzung von [Issue 13](https://github.com/nerdshop/asinello/issues/13) durchgeführt.
 
 ## Modellierung
 
