@@ -17,8 +17,8 @@ Der Drehgeber ragt oben aus dem Gehäuse und wird mit der zugehörigen Unterlegs
 
 Drei Standfüße sorgen für einen sicheren Stand und genügend Spielraum für die Anschlusskabel. In einer späteren Iteration könnten z.B. an deren Innenseite Schnappnase modelliert werden, die in Halterungen für verschiedene ESP-Varianten greifen können, um ein rudimentäres Gesamtpaket zu bilden.
 
-![Oberansicht](/media/PXL_20210413_183755438.jpg "Oben")
-![Unteransicht](/media/PXL_20210413_183814257.jpg "Unten")
+![Oberansicht](/asinello/media/PXL_20210413_183755438.jpg "Oben")
+![Unteransicht](/asinello/media/PXL_20210413_183814257.jpg "Unten")
 
 ![https://user-images.githubusercontent.com/728958/114712105-030b5f00-9d30-11eb-8003-d3fe7714e469.mp4](https://user-images.githubusercontent.com/728958/114712105-030b5f00-9d30-11eb-8003-d3fe7714e469.mp4)
 
