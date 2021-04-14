@@ -1,6 +1,6 @@
 theme: jekyll-theme-hacker
 
-#url: "https://nerdshop.github.io/asinello"
+url: "https://nerdshop.github.io/asinello"
 baseurl: "/asinello"
 
 timezone: "Europe/Berlin"
