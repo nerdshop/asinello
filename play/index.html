@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <link rel="stylesheet" href="3rdparty/css/w3.css">
+  
+    
+  <script src="https://unpkg.com/mqtt@4.2.6/dist/mqtt.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  
+  <title>Assinello</title>
+
+
+</head>
+
+<body>
+
+
+  <div id="app">
+    
+    <form v-on:submit.prevent="connect">
+      <input placeholder="username" v-model="mqtt.credentials.username">
+      <input placeholder="password" v-model="mqtt.credentials.password" type="password">
+      <input placeholder="playernumber" v-model="mqtt.credentials.playernumber">
+      <button>Connect</button>
+    </form>
+    
+
+    <div v-show=game.haveball>
+      I have the ball!!!
+      
+      <br>
+      <form v-on:submit.prevent="throwball">
+
+        <select v-model="selectedplayer">
+          <option v-for="player in activePlayers" v-bind:value="player">
+          {{ player }}
+          </option>
+        </select>
+
+        <button>Throw</button>
+      </form>
+    </div>
+    
+    
+    
+    
+    
+    
+  </div>
+
+
+  
+  <script> 
+    var client;
+    var mqtt_config = {
+          url: "wss://nerdshop.uber.space:40801",
+          credentials: {}
+    }
+    
+    var game = {
+      haveball: false,
+      players: {}
+    }
+  
+    var app = new Vue({
+      el: '#app',
+      data: {
+        mqtt: mqtt_config,
+        game: game,
+        selectedplayer: ""
+      },
+      methods: {
+        connect: function () {
+          client = mqtt.connect(this.mqtt.url, {
+            username: this.mqtt.credentials.username, 
+            password: this.mqtt.credentials.password,
+            will: {
+              topic: "/players/" + this.mqtt.credentials.playernumber + "/alive",
+              payload: "false",
+              retain: true
+            }
+          })
+
+          client.on('message', message_handling)
+
+          client.on('connect', function () {
+            console.log("Connected")
+            client.publish("/players/" + mqtt_config.credentials.playernumber + "/alive", "true", {retain:true})
+            
+            
+            
+            
+            client.subscribe([
+              "/players/+/ball",
+              "/players/+/alive",
+              "/players/" + mqtt_config.credentials.playernumber + "/ball/drop"
+              ], function (err) {
+              if (err) {
+                console.log("Error while subscribing: " + err)
+              }
+            })
+          })
+          
+          client.on('error', function (error) {
+            console.log("Error")
+          })
+
+        },
+        throwball: function () {
+          console.log(this.selectedplayer)
+          client.publish("/players/" + mqtt_config.credentials.playernumber + "/ball/throw", this.selectedplayer)
+        }
+      },
+      computed: {
+        activePlayers: function () {
+          let players=[]
+          for (let key in this.game.players) {
+            if (this.game.players.hasOwnProperty(key)) {
+              if (this.game.players[key]) {
+                players.push(key);
+              }
+            }
+          }
+          return players
+        }
+      }
+    })
+    
+    
+    
+    
+    message_handling = function(topic, message) {
+      // message is Buffer
+      console.log(topic + ":" + message.toString())
+      if (topic== "/players/" + mqtt_config.credentials.playernumber + "/ball") {
+        if (message.toString() == "true") {
+          game.haveball=true;
+        }
+        else if (message.toString() == "false") {
+          game.haveball=false;
+        }
+      } else if (result=topic.match(/\/players\/(.*)\/alive/)) {
+        console.log(result)
+        if (message.toString() == "true") {
+          Vue.set(app.game.players, result[1], true);
+        }
+        else if (message.toString() == "false") {
+          Vue.set(app.game.players, result[1], false);
+        }
+        console.log(game.players)
+      }  else if (topic=="/players/" + mqtt_config.credentials.playernumber + "/ball/drop") {
+        console.log("Ball dropped")
+        if (message.toString() == "true") {
+          client.publish("/players/" + mqtt_config.credentials.playernumber + "/ball/catched", "true")
+        }
+      }
+
+      
+      
+   }
+    
+    
+    
+    
+  </script>
+    
+  
+  
+  <script>
+    
+
+
+  </script>
+  
+
+</body>
+
+</html>
